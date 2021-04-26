@@ -4,7 +4,7 @@ import * as actionConstant from '../../Actions/ActionConstant';
 
 const initialState = {
   drawerStore:0,
-  data:[]
+  data:[],
 };
 
 export const GlobalReducer = (state = initialState, action) => {
@@ -14,13 +14,21 @@ export const GlobalReducer = (state = initialState, action) => {
         ...state,
         drawerStore:state.drawerStore + action.payload,
       };
-      case actionConstant.SELECT_DATA:
+      case actionConstant.SELECT_DRAWER_DECREMENT:
+        return {
+          ...state,
+          drawerStore:state.drawerStore - action.payload,
+        };
+      case actionConstant.SELECT_DATA: 
       return {
         ...state,
-        drawerStore:state.drawerStore + action.payload,
+        data:state.data.concat(action.payload).slice(0,4),
+        
       };
     default:
-      return state;
+      
   }
+  return state;
   
 };
+
