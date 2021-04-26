@@ -22,7 +22,7 @@ export const GlobalReducer = (state = initialState, action) => {
       case actionConstant.SELECT_DATA: 
       return {
         ...state,
-        data:state.data.concat(action.payload).slice(0,4),
+        data: action.payload,
         
       };
     default:
